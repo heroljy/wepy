@@ -15,7 +15,7 @@ export class App extends wepy.app {
  **属性**
 
 * `$wxapp:Object`: `this.$wxapp`等同于`getApp()`。
-* `$pages:List<Page>`: 所有页面列表
+* `$pages:List<Page>`: 所有页面列表。
 
     格式如下：
 
@@ -25,7 +25,7 @@ export class App extends wepy.app {
     }
     ```
 
-* `$interceptors:List<Object>`：所有拦截器列表
+* `$interceptors:List<Object>`：所有拦截器列表。
 
     格式如下：
 
@@ -87,7 +87,7 @@ export class App extends wepy.app {
 * `$name:String`: 组件名称。
 * `$isComponent:Boolean`：是否是组件，如果是页面，此值为false。
 * `$wxpage:Object`: 小程序原生page。
-* `$parent:Page|App`：组件的父组件，如果当前是组件是Page对象，那么$parent的值为App对象。
+* `$parent:Page|App`：组件的父组件，如果当前组件是Page对象，那么$parent的值为App对象。
 * `$root:Page`: 组件所在的Page对象，如果当前组件是Page对象，那么$root的值就是自己本身。
 * `$coms:List<Component>`：组件的子组件列表。
 * `$mixins:Array[Mixin]`：组件所注入的Mixin对象。
@@ -100,7 +100,7 @@ export class App extends wepy.app {
 
 * `setData(key:String|Object, [value:Object])`：对原有小程序的`setData`的封装。
 
-    因为WePY的脏查检流程会自动执行setData操作，所以通常情况下不需要使用此方法。
+    因为WePY的脏检查流程会自动执行setData操作，所以通常情况下不需要使用此方法。
 
     使用方法如下:
 
@@ -160,7 +160,7 @@ export class App extends wepy.app {
 
 * `$emit(eventName:String, [args])`：组件发起一个冒泡事件。
 
-    向父组件发起一个冒泡事件，事件会向上冒泡直至Page或者者事件被手动终止传播。
+    向父组件发起一个冒泡事件，事件会向上冒泡直至Page或者事件被手动终止传播。
 
     使用方法如下:
 
@@ -193,7 +193,7 @@ export class App extends wepy.app {
 
 * `$nextTick([func:Function])`：组件数据绑定完成后的回调事件，v1.6.1以上可用。
 
-数据绑定后的回调事件，在不传入function时，返回一个promise对象
+数据绑定后的回调事件，在不传入function时，返回一个promise对象。
 
 使用方法如下:
 
@@ -216,7 +216,7 @@ this.$nextTick().then(function () {
 
 ### wepy.page Class
 
-页面类，继承自`wepy.component`，拥有页面所有的属性与方法。
+页面类，继承自`wepy.component`，拥有组件所有的属性与方法。
 
  **属性**
 
@@ -224,7 +224,7 @@ this.$nextTick().then(function () {
 
  **方法**
 
-* `$preload(key:String|Object, [value:Object])`：给页面加载preload数据
+* `$preload(key:String|Object, [value:Object])`：给页面加载preload数据。
 
     加载preload数据后，跳转至另一个页面时，在onLoad方法中可以获取到上个页面的preload数据。
 
@@ -252,15 +252,15 @@ this.$nextTick().then(function () {
     });
     ```
 
-* `$navigate(url:String|Object, [params:Object])`：`wx.navigateTo`的封装方法
-* `$switch(url:String|Object)`：`wx.switchTab`的封装方法
+* `$navigate(url:String|Object, [params:Object])`：`wx.navigateTo`的封装方法。
+* `$switch(url:String|Object)`：`wx.switchTab`的封装方法。
 
 
 
 
 ### wepy.event Class
 
-小程序事件封装类
+小程序事件封装类。
 
 ```javascript
 new wepy.event(name:String, source:Component, type:String)
@@ -268,23 +268,23 @@ new wepy.event(name:String, source:Component, type:String)
 
  **属性**
 
-* `name(String)`: 事件名称
+* `name(String)`: 事件名称。
 
     当事件为小程序原生事件时，如`tap`，`change`等，name值为`system`。
     当事件为用户自定事件或者组件通信事件时，如`$emit`，`$broadcast`等，name值为自定事件的名称。
 
-* `source(Component)`：事件来源组件
+* `source(Component)`：事件来源组件。
 
     无论是小程序原生事件还是自定事件，都会有对应的事件来源组件。
 
-* `type(String)`: 事件类型
+* `type(String)`: 事件类型。
 
     `$emit`事件中，type值为`emit`。`bindtap`事件中，type值为`tap`。
 
 
  **方法**
 
-* `$destroy()`：终止事件传播
+* `$destroy()`：终止事件传播。
 
     在`$emit`或者`$broadcast`事件中，调用`$destroy`事件终止事件的传播。
 
