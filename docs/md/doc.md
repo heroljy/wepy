@@ -1502,7 +1502,7 @@ methods: {
 `this.setData(target, value)`
 `this.setData(object)`
 
-点这里查看<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/template.html?t=20161122" target="_blank">官方文档</a>
+点这里查看<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/data.html?t=20161122" target="_blank">官方文档</a>
 
 ```html
 // 原生代码:
@@ -1524,7 +1524,7 @@ onLoad () {
 
 #### 4. 组件代替模板和模块
 
-点这里查看<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/data.html?t=20161122" target="_blank">官方文档</a>
+点这里查看<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/template.html?t=20161122" target="_blank">官方文档</a>
 
 ```html
 // 原生代码:
